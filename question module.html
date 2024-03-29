@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <title>Исторический марафон</title>
+</head>
+
+<body>
+  <div class="nav_menu">
+    <div class="container">
+      Здесь будет меню. Или не будет.
+    </div>
+  </div>
+  <div class="container">
+  <div class="zadanie">
+   
+      <div class="zadanieheader">
+        <div id="timer" class="timer" >
+          29:59
+         </div>
+        <div class="nomerZadaniy">
+          Задание №1
+        </div>
+       
+      </div>
+      <div class="slider">
+        <div id="vopros" class="vopros">
+          <div>
+            Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Которое рукописи встретил обеспечивает lorem, использовало оксмокс ты заглавных вопрос переулка ее пунктуация взобравшись буквенных проектах диких предложения. Запятых дорогу, страну, обеспечивает живет скатился, это всеми деревни точках агентство коварный текст алфавит залетают диких. Всемогущая страна маленький своих решила знаках, одна ее за семантика проектах семь снова которое заглавных инициал по всей до сбить рукописи. 
+        
+        </div>
+        </div>
+        <div class="otvet">
+          <form>Ответ: <input type="text" name="answer1"></form>
+        </div>
+        <div class="slider__breadcrumbs">
+          <button class="slider__item active">1</button>
+          <button class="slider__item">2</button>
+          <button class="slider__item">3</button>
+          <button class="slider__item">4</button>
+          <button class="slider__item">5</button>
+          <button class="slider__item">6</button>
+          <button class="slider__item">7</button>
+          <button class="slider__item">8</button>
+          <button class="slider__item">9</button>
+          <button class="slider__item">10</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>window.addEventListener('load', ()=>{start()})</script>
+  <script src="js/timer.js"></script>
+  <script>
+    fetch('vopros/1.html')
+    .then(response => response.text())
+    .then(html => document.getElementById('content').innerHTML = html);
+    </script>
+  <script>
+    let btns = document.querySelectorAll('.slider__item')
+    for (let btn of btns) {
+      btn.onclick = function () {
+        document.querySelector('.slider__breadcrumbs .active').classList.remove('active')
+        this.classList.add('active')
+        // document.querySelector('.slider__image img').setAttribute('src', `img/${this.innerHTML}.jpg`)
+        document.querySelector('.nomerZadaniy').textContent = `Задание №${this.innerHTML}`
+        document.querySelector('.otvet').innerHTML = `<form>Ответ: <input type="text" name="answer${this.innerHTML}"></form>`
+        fetch(`vopros/${this.innerHTML}.html`)
+    .then(response => response.text())
+    .then(html => document.getElementById('vopros').innerHTML = html);
+    
+      }
+
+    }
+    
+  </script>
+
+
+</body>
+</html>
