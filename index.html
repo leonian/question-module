@@ -60,6 +60,10 @@
     fetch('vopros/1.html')
     .then(response => response.text())
     .then(html => document.getElementById('content').innerHTML = html);
+    document.getElementById('answer').addEventListener('submit', function(event) {
+        event.preventDefault();
+        document.querySelector('.slider__breadcrumbs .active').classList.add('ready');        
+     });
     </script>
   <script>
     let btns = document.querySelectorAll('.slider__item')
