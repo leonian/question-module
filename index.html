@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +9,6 @@
   <link rel="stylesheet" href="css/main.css">
   <title>Исторический марафон</title>
 </head>
-
 <body>
   <div class="nav_menu">
     <div class="container">
@@ -37,7 +35,7 @@
         </div>
         </div>
         <div class="otvet">
-          <form>Ответ: <input type="text" name="answer1"></form>
+          <form id="answer">Ответ: <input type="text" name="answer1"><input type="submit" value="Сохранить"></form>
         </div>
         <div class="slider__breadcrumbs">
           <button class="slider__item active">1</button>
@@ -69,11 +67,12 @@
         this.classList.add('active')
         // document.querySelector('.slider__image img').setAttribute('src', `img/${this.innerHTML}.jpg`)
         document.querySelector('.nomerZadaniy').textContent = `Задание №${this.innerHTML}`
-        document.querySelector('.otvet').innerHTML = `<form>Ответ: <input type="text" name="answer${this.innerHTML}"></form>`
+        document.querySelector('.otvet').innerHTML = `<form id="answer">Ответ: <input type="text" name="answer${this.innerHTML}"><input type="submit" value="Сохранить"></form>`
         fetch(`vopros/${this.innerHTML}.html`)
     .then(response => response.text())
     .then(html => document.getElementById('vopros').innerHTML = html);
-     document.getElementById('answer').addEventListener('submit', function(event) {
+    
+    document.getElementById('answer').addEventListener('submit', function(event) {
         event.preventDefault();
      });
       }
@@ -81,6 +80,12 @@
     }
     
   </script>
+  <script>
+    document.getElementById('answer').addEventListener('submit', function(event) {
+        event.preventDefault();
+        // Ваш код для обработки формы здесь
+    });
+    </script>
 
 
 </body>
