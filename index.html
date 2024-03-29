@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
   <link rel="stylesheet" href="css/main.css">
   <title>Исторический марафон</title>
 </head>
+
 <body>
   <div class="nav_menu">
     <div class="container">
@@ -74,6 +76,9 @@
     
     document.getElementById('answer').addEventListener('submit', function(event) {
         event.preventDefault();
+        document.querySelector('.slider__breadcrumbs .active').classList.add('ready');
+
+        
      });
       }
 
@@ -83,6 +88,7 @@
   <script>
     document.getElementById('answer').addEventListener('submit', function(event) {
         event.preventDefault();
+        
         // Ваш код для обработки формы здесь
     });
     </script>
