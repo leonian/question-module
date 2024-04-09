@@ -87,7 +87,10 @@
       }
 
     }
-    
+
+    document.querySelector('.vopros').oncopy = function(e) {
+      e.preventDefault()
+    }
   </script>
   <script>
     document.getElementById('answer').addEventListener('submit', function(event) {
